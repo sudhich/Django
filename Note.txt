@@ -1,0 +1,93 @@
+Schoolproject-
+--------------
+--------------
+Note- Before create projedct run this.(workon geek)
+(geek) C:\DjangoProject>workon geek
+(1) Creation Project
+django-admin startproject Pro_Name
+(2) Application directory 
+python manage.py startapp App_Name 
+(3) goto project and turn on env
+C:\Users\sudhir>cd..
+C:\Users>cd..
+C:\>cd DjangoProject
+C:\DjangoProject\schoolproject>workon geek
+(4) Run this 
+python manage.py runserver
+and paste given url.
+
+
+Note-------
+------------
+We create template/static folder in root directory the apply this process.
+=============================================================================
+(1)Here inside application urls.py not automatic crated for simplysity we create urls.py  .
+----------------------------------------------------------------------------------------------
+(3)In setting.py we write--
+TEMPLATE_DIR = BASE_DIR/'templates'
+STATIC_DIR = BASE_DIR/'static'
+    and
+Inside TEMPLATES we write--("DIRS": [] ---> "DIRS": [TEMPLATE_DIR ])
+-----------------------look------------------------------------------
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [TEMPLATE_DIR ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
+
+
+schoolpro2-
+----------
+----------
+NOTE-
+--------
+--------
+We create template/static folder in app(application) folder then apply this process.
+(1)Here inside application urls.py not automatic crated for simplysity we create urls.py  .
+----------------------------------------------------------------------------------------------
+(2) In setting.py ["APP_DIRS": True] must be true.
+-----------------------look---------------------------
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+ 
+IMP NOTE======
+-------------
+-------------
+========================================================================================
+|| If we merge both then we can create template folder inside app and root directory. ||
+========================================================================================
+
+
+ORM-->model class into sql statement so that it intract to the dastabase.
+MODEL-
+=======
+makemigration is used to convert model class into sql statement.
+migrate is used to excute sql statement.
+(1)python manage.py makemigrations
+(2)python manage.py migrate
+(3)python manage.py showmigrations
+(4)python manage.py sqlmigrate App_Name(course) File_Num(0001)
